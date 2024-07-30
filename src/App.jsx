@@ -51,8 +51,7 @@ export default function App() {
             preco: "R$ 8,99"
 
         },
-    ]);
-    
+    ]); 
     const [listaPedidos, setPedidos] = useState([]);
 
     const adicionarProdutoPedido = (produto) => {  
