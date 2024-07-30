@@ -66,18 +66,19 @@ export default function App() {
                       <div key={produto.id}>
                              <img src={produto.imagem}/>
                             <p> { produto.item} </p>
-                            <button onClick={() => 
-                                adicionarProdutoPedido(produto)}>Quero</button>
+                            <button onClick={() => adicionarProdutoPedido(produto)}>Quero</button>
                       </div>
-                )
-                }
-            </div>
-            <div className="bloco-pedidos">
-                 <p>Meus Pedidos</p>
-                   { 
+                  )}
+                      </div>
+                      <div className="bloco-pedidos">
+                          <p>Meus Pedidos</p>
+                          {listaPedidos.map((pedido, index) => 
+                              <div key={index}>
+                                  <p>{pedido.item} - {pedido.preco}</p>
+                              </div>
+                          )}
+                      </div>
+                  </div>
                         
-                   }
-            </div>
-        </div>
     );
 }
