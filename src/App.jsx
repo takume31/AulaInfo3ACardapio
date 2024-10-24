@@ -1,101 +1,24 @@
-import { useState } from "react";
-import "../src/globals.css";
+import React from "react";
+import Table from "./Table";
 
-export default function App() {
-    const [listaProdutos, setProdutos] = useState([
 
-        {
+function table(){
 
-            id: 1,
+    const data =[
 
-            item: "Hambúrguer",
-
-            imagem: "https://www.assai.com.br/sites/default/files/shutterstock_1806472312.jpg",
-
-            preco: "R$ 25,99"
-
-        },
-
-        {
-
-            id: 2,
-
-            item: "Coca-cola 350ml",
-
-            imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm4S15squn95k7qtrVOpMX1MOJGe48y4B7FQ&s",
-
-            preco: "R$ 5,99"
-
-        },
-
-        {
-
-            id: 3,
-
-            item: "Batatas fritas",
-
-            imagem: "https://gastronomiacarioca.zonasul.com.br/wp-content/uploads/2023/05/batata_frita_destaque_ilustrativo_zona_sul.jpg",
-
-            preco: "R$ 8,99"
-
-        },
-
-        {
-
-            id: 4,
-
-            item: "Suco de Frutas",
-
-            imagem: "https://helenalunardelli.com.br/wp-content/uploads/2013/02/sucos.jpg",
-
-            preco: "R$ 8,99"
-
-        },
-    ]); 
-    const [listaPedidos, setPedidos] = useState([]);
-
-    const adicionarProdutoPedido = (produto) => {  
-        setPedidos([...listaPedidos, produto]);
-    }
-    console.table(listaPedidos);
-    const removeritem = (id) => {  
-        let listaAux = listaPedidos.filter((pedido)=> pedido.id !== id);
-        setPedidos(listaAux)
-    }
-    console.table(listaPedidos);
+{id:1, ra: 817,name: 'Edson Lopes da Cruz'                ,educacenso:'',data: '13/11/1988',idade: '35 anos',cpf: '01640602194'},
+{id:2, ra: 816,name: 'Rafael da Silva Ramalho'            ,educacenso:'',data: '15/01/2016',idade: '8 anos' ,cpf: '07480751192'},
+{id:3, ra: 815,name: 'Maria Clara Alberto Servignani'     ,educacenso:'',data: '12/10/2023',idade: '0 anos' ,cpf: '00873390130'},
+{id:4, ra: 814,name: 'Enzo Eduardo Ferraz Rios Lopes'     ,educacenso:'',data: '14/07/2015',idade: '9 anos' ,cpf: '09872133182'},
+{id:5, ra: 813,name: 'Pietro Vieira Matias Lemos'         ,educacenso:'',data: '06/06/2015',idade: '9 anos' ,cpf: '11825726183'},
+{id:6, ra: 811,name: 'Heitor Fortine da Silva'            ,educacenso:'',data: '08/03/2021',idade: '3 anos' ,cpf: '11096177129'},
+{id:7, ra: 812,name: 'Maité Sofia da Silva Matos Oliveira',educacenso:'',data: '13/12/2018',idade: '5 anos' ,cpf: '56242599805'}
+    ]
     return (
-        <div className="bloco-principal" >
-            <div className="bloco-produtos">
-                {
-                  listaProdutos.map((produto)=> 
-                      <div key={produto.id}>
-                             <img src={produto.imagem}/>
-                            <p> { produto.item} </p>
-                            <button onClick={() => adicionarProdutoPedido(produto)}>Quero</button>
-                      </div>
-                  )}
-                  
-                      </div>
-                      <div className="bloco-pedidos">
-                          <p>Meus Pedidos</p>
-                          {listaPedidos.map((pedido, index) => 
-                              <div key={index}>
-                                  <td>
-                                    {pedido.item}
-                                    </td>
-                                  <td>
-                                     {pedido.preco}
-                                     </td>
-                              <td>
-                                <button onClick={() => removeritem(pedido.id)}>Remover</button>
-                              </td>
-                              </div>
-                          )}
-
-
-                      </div>
-                  </div>
-                        
+        <>
+        <Table/>
+        </>
     );
-
 }
+
+export default table;
